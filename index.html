@@ -1,39 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<meta name="author" content="Yufenyuy Veyeh Didier">
-	<title>excel to json converter</title>
+	<title>xml2json | Convert XML to JSON</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<style type="text/css">
-		.wrapper {
-			margin-top: 10%;
-		}
-		.file-loader {
-			background-color: #e9e9e9;
-			border-radius: 10px;
-			margin-top: 4%;
-		}
-		.form {
-			padding-top: 20px;
-			padding-bottom: 15px
-		}
-		.wlcm {
-			font-style: bold;
-			font-size: 28px;
-		}
-		body {
-			background-image: url("img/squares-background.png");
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 	<div class="wrapper">
 		<div class="text-center col-md-4 col-md-offset-4">
-			<p class="wlcm text-success">Convert your XML file to JSON</p>
+			<p class="welcome text-success">Convert your XML file to JSON</p>
 		</div>
 		<div class="file-loader text-center col-md-4 col-md-offset-4">
-			<form class="form form-inline" action="import.php" method="post" enctype="multipart/form-data">
+			<form class="form form-inline" action="php/import.php" method="post" enctype="multipart/form-data">
 				<div class="form-group text-center">
 					<h4 class="text-primary">Upload file by clicking on "Choose File"</h4>
 					<br>

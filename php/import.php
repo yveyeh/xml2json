@@ -1,32 +1,19 @@
 <?php
-ini_set( "display_errors", "1" );
-error_reporting( 0 );
+
 $data = array();
  
-function add_person( $con, $id, $nom, $image, $description, $prix, $id_categorie, $id_souscategorie, $id_marque )
-{
-	
-}
- 
 $results = array();
-if ( $_FILES['file']['tmp_name'] )
-{
+
+if ( $_FILES['file']['tmp_name'] ) {
+
 	$dom = DOMDocument::load( $_FILES['file']['tmp_name'] );
 	$rows = $dom->getElementsByTagName( 'Row' );
 	$first_row = true;
-	foreach ($rows as $row)
-	{
-		if ( !$first_row )
-		{
-			$id = "";
-			$nom = "";
-			$image = "";
-			$description = ""; 
-			$prix = "";
-			$id_categorie = ""; 
-			$id_souscategorie = ""; 
-			$id_marque = "";
-			
+	
+	foreach ($rows as $row) {
+
+		if ( !$first_row ) {
+
 			$code_catalogue = "";
 			$items = "";
 			$kit_size = "";
@@ -34,8 +21,9 @@ if ( $_FILES['file']['tmp_name'] )
 			 
 			$index = 1;
 			$cells = $row->getElementsByTagName( 'Cell' );
-			foreach( $cells as $cell )
-			{ 
+
+			foreach( $cells as $cell ) {
+
 				$ind = $cell->getAttribute( 'Index' );
 				if ( $ind != null ) $index = $ind;
 				 
@@ -46,6 +34,7 @@ if ( $_FILES['file']['tmp_name'] )
 				 
 				$index += 1;
 			}
+
 			$data_ = array();
 			$data_['code_catalogue'] = $code_catalogue;
 			$data_['items'] = $items;
@@ -53,8 +42,11 @@ if ( $_FILES['file']['tmp_name'] )
 			$data_['method'] = $method;
 			$results[] = $data_;
 		}
+
 		$first_row = false;
 	}
 }
+
 echo json_encode($results);
+
 ?>
