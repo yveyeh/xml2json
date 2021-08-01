@@ -2,13 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags -->
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="keywords" content="excel to json, xml to json, xml2json, excel to xml">
 	<meta name="author" content="Yufenyuy Veyeh Didier">
+    <!-- Title -->
 	<title>xml2json | Convert XML to JSON</title>
+    <!-- CSS files -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
 </head>
 
 <body>
@@ -35,5 +37,9 @@
 		</div>
 	</div>
 </body>
+
+<!-- JS files -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 </html>
