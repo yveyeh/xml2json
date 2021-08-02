@@ -1,11 +1,41 @@
 <?php
 
+    // string of entered keys
+    $keys_string = $_POST['keys'];
+    // the xml file
+    $temp_file = $_FILES['file']['tmp_name'];
+
     $data = array();
     $results = array();
 
-    if ( $_FILES['file']['tmp_name'] ) {
+    function sanitizeKeysString($_string, $_char) {
+        $sanitized_string = "";
+        if (startsWith($_string, $_char)) {
+            $sanitized_string = substr_replace($_string , "", 0);
+            if (endswith($sanitized_string, $_char)) {
+                $sanitized_string = substr_replace($_string , "", -1);
+            }
+        }
+        if (endsWith($_string, $_char)) {
+            $sanitized_string = substr_replace($_string , "", -1);
+            if (startswith($sanitized_string, $_char)) {
+                $sanitized_string = substr_replace($_string , "", 0);
+            }
+        }
+        return $sanitized_string;
+    }
 
-        $dom = DOMDocument::load( $_FILES['file']['tmp_name'] );
+    function startsWith($haystack, $needle) {
+        return ($needle === $haystack[0]);
+    }
+
+    function endsWith($haystack, $needle) {
+        return ($needle === $haystack[strlen($haystack) - 1]);
+    }
+
+    if ( $temp_file ) {
+
+        $dom = DOMDocument::load( $temp_file );
         $rows = $dom->getElementsByTagName( 'Row' );
         $first_row = true;
         
@@ -13,10 +43,6 @@
 
             if ( !$first_row ) {
 
-                $code_catalogue = "";
-                $items = "";
-                $kit_size = "";
-                $method = "";
                 
                 $index = 1;
                 $cells = $row->getElementsByTagName( 'Cell' );
