@@ -8,7 +8,7 @@ A simple engine written with `Bootstrap 3`, `PHP` and `JQuery` which allows you 
 Version 1.1
 
 ## Author and Contributors
-- [Yufenyuy Veyeh Didier](https://yveyeh.github.io), [Tenshnova](https://tenshnova.com/)
+- [Yufenyuy Veyeh Didier](https://yveyeh.github.io) ([Tenshnova](https://tenshnova.com/)).
 
 ## License
 The [MIT](https://github.com/yveyeh/xml2json/blob/master/LICENSE) License.
