@@ -5,7 +5,7 @@ A simple engine written with `Bootstrap 3`, `PHP` and `JQuery` which allows you 
 
 
 ## Version
-Version 1.0
+Version 1.1
 
 ## Author and Contributors
 - [Yufenyuy Veyeh Didier](https://yveyeh.github.io), [Tenshnova](https://tenshnova.com/)
