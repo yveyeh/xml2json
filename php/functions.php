@@ -9,9 +9,9 @@
 
     /**
      * Removes `,` from the beginning or end of a given string.
-     * @param {string} $_str - The string to sanitize.
-     * @param {string} $_char - The character to remove.
-     * @return String
+     * @param string $_str - The string to sanitize.
+     * @param string $_char - The character to remove.
+     * @return string
      */
     function sanitizeKeysString($_str, $_char) {
         $sanitized_str = "";
