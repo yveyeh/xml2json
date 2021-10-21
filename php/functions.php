@@ -30,12 +30,24 @@
         return $sanitized_str;
     }
 
-    function startsWith($haystack, $needle) {
-        return ($needle === $haystack[0]);
+    /**
+     * Checks if a string starts with a given character.
+     * @param string $_str - The string to be searched.
+     * @param string $_char - The string character to be found or not.
+     * @return bool
+     */
+    function startsWith($_str, $_char) {
+        return ($_char === $_str[0]);
     }
 
-    function endsWith($haystack, $needle) {
-        return ($needle === $haystack[strlen($haystack) - 1]);
+    /**
+ * Checks if a string ends with a given character.
+ * @param string $_str - The string to be searched.
+ * @param string $_char - The string character to be found or not.
+ * @return bool
+ */
+    function endsWith($_str, $_char) {
+        return ($_char === $_str[strlen($_str) - 1]);
     }
 
 ?>
