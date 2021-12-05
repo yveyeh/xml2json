@@ -26,11 +26,11 @@
                 <div class="form-group">
                     <!-- Define the object keys -->
                     <h4 class="text-primary text-left"><span>1.</span> Enter the keys of the JSON separated by ",".</h4>
-                    <textarea  class="form-control"  name="keys" rows="3"></textarea>
+                    <textarea  class="form-control"  name="keys" rows="3" required></textarea>
                     <br><br>
                     <!-- Upload the xml file -->
 					<h4 class="text-primary text-left"><span>2.</span> Upload file by clicking on "Choose File".</h4>
-					<input class="form-control" type="file" name="file" />
+					<input class="form-control" type="file" name="file" accept=".xml" required/>
                     <p class="text-danger"><i>*Please make sure you upload an xml file.</i></p>
 					<br><br>
                     <!-- Submit the form -->

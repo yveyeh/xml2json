@@ -1,49 +1,19 @@
 <?php
+include './functions.php';
 
-    include './functions.php';
-
-    // string of entered keys
-    $keys_str = $_POST['keys'];
-    // the xml file
-    $temp_file = $_FILES['file']['tmp_name'];
-
-    //
-    $data = array();
-    //
-    $values = array();
-    //
-    $keys = getKeys($keys_str);
-
-    //
-    if ( $temp_file ) {
-
-        $dom = DOMDocument::load( $temp_file );
-        $rows = $dom->getElementsByTagName( 'Row' );
-        //
-        $first_row = true;
-        //
-        foreach ( $rows as $row ) {
-
-            if ( !$first_row ) {
-                //
-                $cells = $row->getElementsByTagName( 'Cell' );
-                //
-                foreach( $cells as $cell ) {
-                    array_push( $values, $cell->nodeValue );
-                }
-                //
-                for ($i=0; $i < count($keys); $i++) { 
-                    $_data[ $keys[$i] ] = $values[$i];
-                }
-                //
-                $data[] = $_data;
-            }
-            //
-            $first_row = false;
-        }
-
+// String of entered keys. // TODO : Error report if no value submitted.
+$keys_str = isset($_POST['keys']) ? esc($_POST['keys']) : '';
+// Get the json object keys.
+$keys = get_keys($keys_str);
+// Generate and output JSON. (Check uploaded file and it's type)
+if ($_FILES && $_FILES['file']['type'] == 'text/xml') {
+    $dom = new DOMDocument(); // Instantiate the DOMDocument object.
+    $dom->load($_FILES['file']['tmp_name']); // Load xml from the uploaded file.
+    $rows = $dom->getElementsByTagName('Row'); // Get all rows.
+    foreach ($rows as $i => $row) {
+        $cells = $row->getElementsByTagName('Cell'); // Get all cells in the target row.
+        foreach ($cells as $j => $cell)
+            $data[$i][$keys[$j]] = $cell->nodeValue; // Set key: value pairs.
     }
-    //
-    echo json_encode($data);
-
-?>
+    echo json_encode($data); // Output json.
+}
